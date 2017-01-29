@@ -1,0 +1,19 @@
+sil11\VitrineBundle\Entity\Category:
+    type: entity
+    table: category
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name: 
+            type: string
+            length: 100
+        file:
+            type : string
+            maxSize: 5000000
+            nullable: true
+    oneToMany:
+        products:
+            targetEntity: Product
+            mappedBy: category

@@ -1,0 +1,27 @@
+sil11\VitrineBundle\Entity\Customer:
+    type: entity
+    table: customer
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        last_name: 
+            type: string
+            length: 50
+        first_name:
+            type: string
+            lenght: 50
+        mail:
+            type: string
+            lenght: 50
+        password:
+            type: string
+            lenght: 15
+        administrator:
+            type: string
+            lenght: 1
+    oneToMany:
+        orders:
+            targetEntity: Order
+            mappedBy: customer

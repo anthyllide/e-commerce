@@ -1,0 +1,8 @@
+{% extends "sil11VitrineBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+
+{% block content %}
+{{ render(controller('sil11VitrineBundle:Default:articlesLesPlusVendus')) }}
+{% endblock %}
+

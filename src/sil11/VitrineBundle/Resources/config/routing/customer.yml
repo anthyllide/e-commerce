@@ -1,0 +1,34 @@
+customer_index:
+    path:     /
+    defaults: { _controller: "sil11VitrineBundle:Customer:index" }
+    methods:  GET
+
+customer_show:
+    path:     /connected/{id}/show
+    defaults: { _controller: "sil11VitrineBundle:Customer:show" }
+    methods:  GET
+
+customer_new:
+    path:     /signup
+    defaults: { _controller: "sil11VitrineBundle:Customer:new" }
+    methods:  [GET, POST]
+
+customer_edit:
+    path:     /connected/{id}/edit
+    defaults: { _controller: "sil11VitrineBundle:Customer:edit" }
+    methods:  [GET, POST]
+
+customer_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sil11VitrineBundle:Customer:delete" }
+    methods:  DELETE
+
+customer_login:
+    path:     /login
+    defaults: { _controller: "sil11VitrineBundle:Customer:login" }
+    methods:  [GET, POST]
+
+customer_logout:
+    path:     /logout
+    defaults: { _controller: "sil11VitrineBundle:Customer:logout" }
+    methods:  [GET, POST]

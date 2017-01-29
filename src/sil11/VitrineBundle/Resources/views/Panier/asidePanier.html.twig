@@ -1,0 +1,9 @@
+{% if message is defined %}
+        {{ message }}
+    {% else %}
+        {% if nbArticle > 1 %}
+            {{ nbArticle }} articles
+        {% elseif nbArticle == 1 %}
+            {{ nbArticle }} article
+        {% endif %} 
+{% endif %}

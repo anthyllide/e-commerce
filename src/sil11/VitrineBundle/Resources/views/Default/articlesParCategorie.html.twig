@@ -1,0 +1,48 @@
+{% extends "sil11VitrineBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Catalogue{% endblock %}
+
+{% block content %}
+    <h3>Nos {{category.getName()}}</h3>
+     {% for product in listProducts %}
+         <table class="table-article table table-bordered ">
+             <tr>
+                 <td colspan="2"><img height=40%" width="40%" src="{{ asset('uploads/pictures/' ~ product.file) }}"/></td>
+             </tr>
+            <tr>
+                <th>Nom de l'article</th>
+                <td>{{product.getItem()}}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{product.getPrice()}} €</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                {%  if product.getQuantity() > 0 %}
+                <td>En stock</td>
+                {% else %}
+                    <td>En cours de réapprovisionnement</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td class="no_border"></td>
+                <td class="addProduct">
+                    {% if product.getQuantity() > 0 %}
+                        <div class="btn btn-primary">
+                            <a href="{{ path('sil11_vitrine_ajoutPanier') }}/{{product.getId()}}">Ajouter au panier</a>
+                        </div>
+                        <div class="btn btn-info">
+                            <a href="{{ path('sil11_vitrine_article') }}/{{product.getId()}}">En savoir plus</a>
+                        </div>
+                    {% else %}
+                        <span style="color:#FF0000">En cours de réapprovisionnement</span>
+                        <div class="btn btn-info">
+                            <a href="{{ path('sil11_vitrine_article') }}/{{product.getId()}}">En savoir plus</a>
+                        </div>
+                    {% endif %}
+                </td>
+            </tr>
+         </table>
+     {% endfor %}
+{% endblock %}

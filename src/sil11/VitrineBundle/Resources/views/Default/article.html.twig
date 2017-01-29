@@ -1,0 +1,43 @@
+{% extends "sil11VitrineBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - {{ article.getItem() }}{% endblock %}
+
+{% block content %}
+    <div id="fiche-produit" class="fluid-container">
+        <div class="row col-sm-12">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <h3>{{ article.getItem() }}</h3>
+                <ul>
+                    <li>réf. : {{ article.reference}}</li>
+                    <li>Prix : {{ article.price }} €</li>
+                    <li>Stock : {{ article.quantity }}</li>
+                </ul>
+            </div>
+            <div style="text-align: center" class="col-sm-6">
+                <img height=50%" width="50%" style="border:solid 1px black; text-align: center" src="{{ asset('uploads/pictures/' ~ article.file) }}"/>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                {{ article.description }}
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            {% if article.getQuantity() > 0 %}
+            <div class="col-sm-2 btn btn-primary">
+
+                <a href="{{ path('sil11_vitrine_ajoutPanier') }}/{{article.getId()}}">Ajouter au panier</a>
+            </div>
+            {% else %}
+            <div class="col-sm-4">
+                <span style="color:#FF0000; margin : 0 auto;">En cours de réapprovisionnement</span>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

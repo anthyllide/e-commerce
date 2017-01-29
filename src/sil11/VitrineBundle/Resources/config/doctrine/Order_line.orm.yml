@@ -1,0 +1,33 @@
+sil11\VitrineBundle\Entity\Order_line: 
+    type: entity 
+    repositoryClass: sil11\VitrineBundle\Entity\Order_lineRepository
+    table: order_line
+    id:
+        order:
+            associationKey: true
+        product:
+            associationKey: true
+    manyToOne:
+        order:
+            targetEntity: Order
+        product:
+            targetEntity: Product
+    fields:
+        order_quantity: 
+            type: integer
+        price:
+            type: decimal
+            scale: 2
+    manyToOne:
+        order:
+            targetEntity: Order
+            inversedBy: orders
+            joinColumn:
+                name: order_id
+                referencedColumnName: id
+        product:
+            targetEntity: Product
+            inversedBy: products
+            joinColumn:
+                name: product_id
+                referencedColumnName: id

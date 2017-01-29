@@ -1,0 +1,32 @@
+{% extends "sil11VitrineBundle::adminLayout.html.twig" %}
+{% block title %}{{ parent() }} - Liste des commandes {% endblock %}
+{% block content %}
+    <h3>Liste des commandes</h3>
+    <table class="table-admin table table-bordered">
+        <thead>
+            <tr>
+                <th>Numéro de commande</th>
+                <th>Date</th>
+                <th>Etat</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{% if order.date %}{{ order.date|date('d-m-Y') }}{% endif %}</td>
+                <td>
+                    {% if  order.submited == 'yes'%} validée
+                    {% elseif order.submited == 'no'%} non validée
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="col-sm-9 btn btn-xs btn-primary" >
+                        <a href="{{ path('order_edit', { 'id': order.id }) }}">éditer l'état</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

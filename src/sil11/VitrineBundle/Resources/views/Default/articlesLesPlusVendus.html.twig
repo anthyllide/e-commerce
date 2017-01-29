@@ -1,0 +1,28 @@
+<h4>Le top 3 des produits les plus vendus</h4>
+<div style="margin-top:20px; width:90%; padding-top: 10px; padding-bottom: 10px; border-radius:5px; background-color:#e5e5e5" class="container-fluid">
+        <div class="col-sm-12 row">
+
+{% for article in listArticles %}
+        <table id="tablePlusVendus" class="col-sm-3 col-sm-offset-1">
+                <tbody>
+                <tr>
+                        <td><img height=60%" width="60%" src="{{ asset('uploads/pictures/' ~ article[0].getProduct().file) }}"/></td>
+                </tr>
+                        <tr>
+                                <td>{{ article[0].getProduct().getItem() }}</td>
+                        </tr>
+                        <tr>
+                                <td>{{ article[0].getProduct().getPrice() }} €</td>
+                        </tr>
+                        <tr>
+                                <td>
+                                        <div class="btn btn-primary btn-xs" >
+                                                <a href="{{ path('sil11_vitrine_article') }}/{{article[0].getProduct().getId()}}">En savoir plus</a>
+                                        </div>
+                                </td>
+                        </tr>
+                </tbody>
+        </table>
+{% endfor %}
+                        </div>
+</div>

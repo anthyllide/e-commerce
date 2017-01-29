@@ -1,0 +1,66 @@
+{% extends "sil11VitrineBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Votre panier{% endblock %}
+
+{% block content %}
+    {% if message is defined %}
+    <section>
+        <p>{{ message }}</p>
+    </section>
+    {% else %}
+    <h3>Votre panier</h3>
+    {% for message in app.session.flashbag.get('info') %}
+        <section class="col-2">
+            <p class="alert alert-danger"> {{ message }}</p>
+        </section>
+    {% endfor %}   
+    <section>
+        <div class="btn btn-primary viderPanier">
+        <a href="{{ path('sil11_vitrine_viderPanier') }}">Vider panier</a>
+        </div>
+        <table class="table-article table table-bordered">
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire TTC</th>
+                    <th>Prix total TTC</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, product in article %}
+                <tr>
+                    <td>{{ product.getItem() }}</td>
+                    <td><a class="choix_quantite" href="{{ path('sil11_vitrine_retirerQteArticle') }}/{{product.getId() }}">
+                            <span class="glyphicon glyphicon-minus-sign"></span></a>
+                                {{ Qte[product.getId()] }}
+                                    <a class="choix_quantite" href="{{ path('sil11_vitrine_ajouterQteArticle') }}/{{product.getId()}}">
+                                        <span class="glyphicon glyphicon-plus-sign"></span></a>
+                    </td>
+                    <td>{{ product.getPrice() }} €</td>
+                    <td>{{ totalInter[key] }} €</td>
+                    <td><a class="supprimerArticle" href="{{ path('sil11_vitrine_supprimerArticle') }}/{{product.getId()}}">
+                            <span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td class="no_border"></td>
+                    <td class="no_border"></td>
+                    <th>TVA (20%)</th>
+                    <td>{{ tva }} €</td>
+                <tr>
+                <tr>
+                    <td class="no_border"></td>
+                    <td class="no_border"></td>
+                    <th>TOTAL A PAYER</th>
+                    <td>{{ total }} €</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="{{ path('sil11_vitrine_validerPanier') }}">
+            <input class="btn btn-primary validerPanier" id="valider_panier" type="submit" name="valider" value="Valider le panier" />
+        </form>
+    </section>   
+    {% endif %}
+{% endblock %}

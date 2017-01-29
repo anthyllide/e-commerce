@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}AlexModelRC{% endblock %}</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link href="{{ asset('bundles/sil11vitrine/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/sil11vitrine/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{{ asset('bundles/sil11vitrine/js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+    <div id="wrapper"> 
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ path('sil11_vitrine_admin') }}">Admin</a>
+                </div>
+                 <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catégories
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('category_index') }}">Afficher/Editer</a></li>
+                            <li><a href="{{ path('category_new') }}">Créer</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Articles
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('product_index') }}">Afficher/Editer</a></li>
+                            <li><a href="{{ path('product_new') }}">Créer</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Commandes
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('order_index') }}">Afficher/Editer</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ path('sil11_vitrine_homepage') }}"><span class="glyphicon glyphicon-log-out"></span> Retour au site</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+        {% include ("sil11VitrineBundle::footer.html.twig") %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "sil11VitrineBundle::adminLayout.html.twig" %}
+{% block title %}{{ parent() }} - Editer une commande {% endblock %}
+{% block content %}
+    <h3>Liste des produits</h3>
+
+    <table class="table-admin-product table table-bordered">
+    <table class="table-admin-product table table-bordered">
+        <thead>
+            <tr>
+                <th>Id Produit</th>
+                <th>Nom</th>
+                <th>Réf.</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.item }}</td>
+                <td>{{ product.reference }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>
+                    <div class="col-sm-3 btn btn-xs btn-primary" >
+                        <a href="{{ path('product_edit', { 'id': product.id }) }}">éditer</a>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-5 btn btn-xs btn-danger" >
+                        <a href="{{ path('product_delete', { 'id': product.id }) }}">supprimer</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

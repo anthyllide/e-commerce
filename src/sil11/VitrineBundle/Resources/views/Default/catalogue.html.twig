@@ -1,0 +1,20 @@
+{% extends "sil11VitrineBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Catalogue{% endblock %}
+
+{% block content %}
+<h4>Catégories</h4>
+<div style="margin-top:20px; width:90%; padding-top: 10px; padding-bottom: 10px; border-radius:5px; background-color:#e5e5e5" class="container-fluid">
+    <div class="col-sm-12 row">
+        <p>Avions, planeurs, Hélico, AMRC est le spécialiste de l'aéromodélise radio-commandé. <br /> Cliquez sur la catégorie qui vous intéresse !</p>
+            {% for category in listCategories %}
+                <div id="catalogue" class="col-sm-3 col-sm-offset-1">
+                   <a href="{{ path('sil11_vitrine_articlesParCategorie') }}/{{category.getId()}}">
+                       <img height=60%" width="60%" src="{{ asset('uploads/pictures/' ~ category.file) }}"/>
+                    <p>{{ category.name }}</p>
+                   </a>
+                </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

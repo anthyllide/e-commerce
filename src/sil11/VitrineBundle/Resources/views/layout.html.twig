@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}AlexModelRC{% endblock %}</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link href="{{ asset('bundles/sil11vitrine/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/sil11vitrine/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{{ asset('bundles/sil11vitrine/js/bootstrap.min.js') }}"></script>
+</head>
+<body>
+    <div id="wrapper"> 
+        {% include ("sil11VitrineBundle::header.html.twig") %}   
+        <nav class="navbar navbar-inverse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ path('sil11_vitrine_homepage') }}"><span class="glyphicon glyphicon glyphicon-home"></span>Accueil</a></li>
+                <li><a href="{{ path('sil11_vitrine_catalogue') }}">Catalogue</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>Bonjour
+                       {{ render(controller('sil11VitrineBundle:Customer:afficheNomClient')) }}
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('customer_show', { 'id': app.user.id }) }}">Votre compte</a></li>
+                        <li><a href="{{ path('order_show', { 'id': app.user.id }) }}">Vos commandes</a></li>
+                        <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>Votre compte
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('login') }}">Se connecter</a></li>
+                            <li><a href="{{ path('customer_new') }}">S'inscrire</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+                <li><a href="{{ path('sil11_vitrine_contenuPanier') }}"/><span class="glyphicon glyphicon-shopping-cart"></span>{{ render(controller('sil11VitrineBundle:Panier:voirPanierAside')) }}</a></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('sil11_vitrine_admin') }}"><span class="glyphicon glyphicon-cog"></span>Admin</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+        {% include ("sil11VitrineBundle::footer.html.twig") %}  
+    </div>
+</body>
+</html>

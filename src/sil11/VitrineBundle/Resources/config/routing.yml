@@ -1,0 +1,77 @@
+sil11_vitrine_homepage:
+    path:     /accueil
+    defaults: { _controller: sil11VitrineBundle:Default:index}
+
+sil11_vitrine_mentions:
+    path:     /mentions
+    defaults: { _controller: sil11VitrineBundle:Default:mentions }
+    
+sil11_vitrine_catalogue:
+    path:     /catalogue
+    defaults: { _controller: sil11VitrineBundle:Default:catalogue }
+    
+sil11_vitrine_articlesParCategorie:
+    path:     /articlesParCategorie/{id}
+    defaults: { _controller: sil11VitrineBundle:Default:articlesParCategorie, id:0 }
+
+sil11_vitrine_article:
+    path:     /article/{id}
+    defaults: { _controller: sil11VitrineBundle:Default:article, id:0 }
+    
+sil11_vitrine_contenuPanier:
+    path:     /contenuPanier
+    defaults: { _controller: sil11VitrineBundle:Panier:contenuPanier }
+    
+sil11_vitrine_ajoutPanier:
+    path:     /ajoutPanier/{articleId}
+    defaults: { _controller: sil11VitrineBundle:Panier:ajoutPanier, articleId:0 }
+    
+sil11_vitrine_viderPanier:
+    path:     /viderPanier
+    defaults: { _controller: sil11VitrineBundle:Panier:viderPanier }
+    
+sil11_vitrine_ajouterQteArticle:
+    path:     /ajouterQteArticle/{articleId}
+    defaults: { _controller: sil11VitrineBundle:Panier:ajouterQteArticle, articleId:0 }
+    
+sil11_vitrine_retirerQteArticle:
+    path:     /retirerQteArticle/{articleId}
+    defaults: { _controller: sil11VitrineBundle:Panier:retirerQteArticle, articleId:0 }
+    
+sil11_vitrine_supprimerArticle:
+    path:     /supprimerArticle/{articleId}
+    defaults: { _controller: sil11VitrineBundle:Panier:supprimerArticle, articleId:0 }
+
+sil11_vitrine_validerPanier:
+    path:     /validerPanier
+    defaults: { _controller: sil11VitrineBundle:Panier:validerPanier }
+
+sil11_vitrine_admin:
+    path:     /admin
+    defaults: { _controller: sil11VitrineBundle:Admin:index }
+
+sil11_vitrine_order:
+    resource: "@sil11VitrineBundle/Resources/config/routing/order.yml"
+    prefix:   /order
+
+sil11_vitrine_category:
+        resource: "@sil11VitrineBundle/Resources/config/routing/category.yml"
+        prefix:   /category
+
+sil11_vitrine_product:
+        resource: "@sil11VitrineBundle/Resources/config/routing/product.yml"
+        prefix:   /product
+
+sil11_vitrine_customer:
+    resource: "@sil11VitrineBundle/Resources/config/routing/customer.yml"
+    prefix:   /customer
+
+login:
+  path: /login
+  defaults: { _controller: sil11VitrineBundle:Security:login}
+
+login_check:
+  path: /login_check
+
+logout:
+  path: /logout

@@ -1,0 +1,21 @@
+{% extends "sil11VitrineBundle::adminLayout.html.twig" %}
+{% block title %}{{ parent() }} - Editer une commande {% endblock %}
+{% block content %}
+    <h3>Modifier l'état de la commande n° {{ order.id }}</h3>
+
+    {{ form_start(edit_form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    <div class="form-group">
+
+        {{ form_label(edit_form.submited, "Etat de la commande : ", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+        <div class="col-sm-4">
+            {{ form_widget(edit_form.submited, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary btn-sm" type="submit" value="modifier l'état" />
+    </div>
+    {{ form_end(edit_form) }}
+
+{% endblock %}

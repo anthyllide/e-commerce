@@ -1,0 +1,27 @@
+sil11\VitrineBundle\Entity\Category:
+  properties:
+    name:
+      - NotBlank: ~
+      - Length:
+          min: 2
+          max: 30
+          minMessage: Saisissez au moins {{ limit }} caractères.
+          maxMessage: Vous ne pouvez pas saisir plus de {{ limit }} caractères pour le nom d'une catégorie.
+
+sil11\VitrineBundle\Entity\Product:
+  properties:
+    item:
+      - NotBlank: ~
+    reference:
+      - NotBlank: ~
+      - Range:
+          min: 1000
+          max: 9999
+          minMessage: Vous devez saisir au moins {{ limit }} pour la référence produit.
+          maxMessage: Vous ne pouvez pas saisir plus de {{ limit }} pour la référence produit.
+    price:
+      - NotBlank: ~
+      - Range:
+          min: 1.00
+          minMessage: Vous devez saisir au moins {{ limit }}€ .
+

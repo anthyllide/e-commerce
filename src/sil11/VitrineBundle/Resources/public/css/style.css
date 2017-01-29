@@ -1,0 +1,298 @@
+body {
+    background-image: url('../images/background.jpg');
+}
+
+#wrapper{
+    margin: 10px auto;
+    max-width: 980px;
+    background-color: #FFF;
+}
+
+h3 {
+    color : #060CB3;
+    margin-left : 10%;
+}
+
+h4 {
+    margin-left : 5%;
+    color : #060CB3;
+}
+
+p{
+    padding : 10px 5% ;
+}
+
+a {
+    color : #FFF;
+    text-decoration: none;
+}
+
+a:hover{
+    color : #000;
+    text-decoration: none;
+}
+
+.mentions-list{
+    padding : 10px 7%;
+}
+
+.navbar{
+    border-radius: 0px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color : #FFF;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color : #ABADEC;
+}
+
+.navbar-right {
+    margin-right : 0px;
+}
+
+.glyphicon {
+    margin-right : 5px;
+}
+
+.jumbotron {
+    /* IE10+ */
+    background-image: -ms-linear-gradient(top, #FFFFFF 30%, #A6B8FF 80%);
+
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top, #FFFFFF 30%, #A6B8FF 80%);
+
+    /* Opera */
+    background-image: -o-linear-gradient(top, #FFFFFF 30%, #A6B8FF 80%);
+
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(30, #FFFFFF), color-stop(80, #A6B8FF));
+
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top, #FFFFFF 30%, #A6B8FF 80%);
+
+    /* W3C Markup */
+    background-image: linear-gradient(to bottom, #FFFFFF 30%, #A6B8FF 80%);
+    color : #000;
+    font-size : 40px;
+    padding-top: 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.jumbotron img{
+    width : 12%;
+    display: inline-block;
+    margin-right: 10%;
+}
+
+.jumbotron p{
+    display: inline-block;
+}
+
+section {
+    padding : 10px;
+}
+.table-article {
+    width : 60%;
+    margin: 20px auto 60px auto;
+    border : none;
+    text-align: center;
+}
+.table > thead:first-child > tr:first-child > th {
+    border-top : 1px solid #000;
+}
+
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th{
+     border : 1px solid #000;
+}
+
+.table-bordered td, .table > thead > tr > th  {
+    border : 1px solid #000;
+}
+
+.table-admin {
+    width : 60%;
+    margin: 30px auto 0px 10%;
+    border : none;
+    text-align: center;
+}
+
+.table-admin > thead:first-child > tr:first-child > th {
+    text-align: center;
+}
+
+.table-admin-product{
+    width : 85%;
+    margin: 30px auto 0px 10%;
+    border : none;
+    text-align: center;
+}
+
+.table-admin-product > thead:first-child > tr:first-child > th {
+    text-align: center;
+}
+.table-admin-product > thead:first-child > tr:first-child > th:nth-child(5){
+  width : 10em;
+}
+.table-admin-product > tbody > tr > td:first-child {
+    width: 0.8em;
+}
+
+.table-admin-product > tbody > tr > td:nth-child(4){
+     width: 0.8em;
+ }
+
+.table-admin-product > tbody > tr > td:nth-child(5){
+    display:block;
+    height:5em;
+    width:20em;
+    overflow-y:scroll;
+    font-size: smaller;
+}
+
+.table-admin-product > tbody > tr > td:nth-child(6){
+    width: 0.8em;
+}
+
+#inscrivez-vous a {
+    display:block;
+    color:#060CB3;
+    font-size: medium;
+    text-decoration: underline;
+    margin-left: 25%;
+}
+
+#inscrivez-vous a:hover {
+    color : #000000;
+    text-decoration: none;
+}
+
+.supprimerArticle{
+    color : #337ab7;
+}
+
+.viderPanier{
+    margin-left : 85%;
+}
+
+.validerPanier{
+    margin-left : 62.5%;
+}
+
+.row.bouton-catalogue{
+    width:90%;
+    padding-left:20%;
+    margin: 50px auto;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.table-bordered tbody tr td.no_border {
+    border : none;
+}
+
+.table-bordered tbody tr td.addProduct {
+    text-align: center;
+}
+
+footer {
+    text-align : center;
+    font-size: 13px;
+    color: #FFF;
+    height : 40px;
+    line-height : 40px;
+    background-color: #000;
+    margin-top : 50px;
+}
+
+footer a {
+    color : #FFF;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color : #ABADEC;
+    text-decoration: none;
+}
+
+.choix_quantite {
+    color : #337ab7;
+    font-weight : bold;
+    text-decoration: none;
+    font-size : 15px;
+}
+
+.choix_quantite .glyphicon-plus-sign {
+    margin-left: 5px;
+}
+
+.choix_quantite:hover { 
+    color : #000;
+}
+
+#tablePlusVendus {
+    background-color: #cecece;
+    border-radius: 5px;
+}
+
+#tablePlusVendus td {
+    text-align: center;
+    padding-top : 5px;
+    padding-bottom : 5px;
+    font-weight: bold;
+}
+
+form.form-horizontal{
+    margin-top : 20px;
+}
+
+form.form-horizontal input.btn{
+    margin-left: 45%;
+}
+
+#admin-decor{
+    text-align: center;
+}
+
+#fiche-produit h3 {
+    margin-left: 0;
+}
+
+ #fiche-produit ul{
+    margin-left: -14%;
+    margin-top: 40px;
+}
+
+#fiche-produit ul li {
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#fiche-produit div.row {
+    margin-bottom: 30px;
+}
+
+#fiche-produit div.btn {
+    margin-bottom: 30px;
+}
+
+#catalogue {
+    background-color: #cecece;
+    border-radius: 5px;
+}
+
+#catalogue a {
+    display: block;
+    padding-top: 10px;
+    color : #000000;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
+
+#catalogue a:hover{
+    background-color: #66afe9;
+}

@@ -1,0 +1,36 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+
+    encoders:
+      sil11\VitrineBundle\Entity\Customer:
+        algorithm: bcrypt
+        cost: 12
+
+    role_hierarchy:
+      ROLE_ADMIN: ROLE_USER
+
+    providers:
+      utilisateurs:
+        entity: { class: sil11VitrineBundle:Customer, property: mail }
+
+    firewalls:
+      vitrine_area:
+        pattern: ^/
+        anonymous: ~
+        form_login:
+          login_path: /login
+          check_path: /login_check
+        logout:
+          path: /logout
+          target: /accueil
+
+    access_control:
+    - { path: ^/order/customer, roles: ROLE_USER }
+    - { path: ^/customer/connected, roles: ROLE_USER }
+    - { path: ^/validerPanier, roles: ROLE_USER }
+    - { path: ^/admin, roles: ROLE_ADMIN }
+    - { path: ^/category, roles: ROLE_ADMIN }
+    - { path: ^/product, roles: ROLE_ADMIN }
+    - { path: ^/order/admin, roles: ROLE_ADMIN }
+

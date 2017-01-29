@@ -1,0 +1,27 @@
+{% extends "sil11VitrineBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Vos commandes{% endblock %}
+
+{% block content %}
+    <h3>Vos commandes</h3>
+
+    <table class="table-admin table table-bordered">
+        <tbody>
+            <tr>
+                <th>Date</th>
+                <th>Etat</th>
+            </tr>
+
+            {% for order in orders %}
+            <tr>
+
+                <td>{% if order.date %}{{ order.date|date('d-m-Y') }}{% endif %}</td>
+                <td>
+                    {% if  order.submited == 'yes'%} validée
+                    {% elseif order.submited == 'no'%} non validée
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

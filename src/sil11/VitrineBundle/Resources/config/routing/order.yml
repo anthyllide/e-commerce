@@ -1,0 +1,24 @@
+order_index:
+    path:     /admin
+    defaults: { _controller: "sil11VitrineBundle:Order:index" }
+    methods:  GET
+
+order_show:
+    path:     /customer/{id}/show
+    defaults: { _controller: "sil11VitrineBundle:Order:show" }
+    methods:  [GET, POST]
+
+order_new:
+    path:     /new
+    defaults: { _controller: "sil11VitrineBundle:Order:new" }
+    methods:  [GET, POST]
+
+order_edit:
+    path:     /admin/{id}/edit
+    defaults: { _controller: "sil11VitrineBundle:Order:edit" }
+    methods:  [GET, POST]
+
+order_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sil11VitrineBundle:Order:delete" }
+    methods:  DELETE
